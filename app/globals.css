@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bone: #f2ede4;
+  --color-ink: #1f1b17;
+  --color-oxblood: #6e1e1e;
+  --color-butter: #f4e4c1;
+  --color-gold: #b89968;
+
+  --font-sans: var(--font-lora), ui-serif, Georgia, serif;
+  --font-display: var(--font-dm-serif), ui-serif, Georgia, serif;
+}
+
+html,
+body {
+  background: var(--color-bone);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "kern", "liga", "calt", "ss01";
+}
+
+::selection {
+  background: var(--color-oxblood);
+  color: var(--color-bone);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Display type — DM Serif Display */
+.font-display {
+  letter-spacing: -0.012em;
+  font-weight: 400;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+  font-weight: 400;
+}
+
+/* Tracked-out editorial labels — sans, not body Lora */
+.label-eyebrow {
+  font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .label-eyebrow {
+    font-size: 12px;
+  }
+}
+
+/* Animated underline — draws from left on hover */
+.link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 calc(100% - 2px);
+  transition: background-size 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  text-decoration: none;
+}
+
+.link-underline:hover {
+  background-size: 100% 1px;
+}
+
+/* Subtle organic film-grain drift */
+@keyframes grain-drift {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-2%, 1%);
+  }
+  50% {
+    transform: translate(1.5%, -1.5%);
+  }
+  75% {
+    transform: translate(-1%, -1%);
+  }
+}
+
+.grain-animated {
+  animation: grain-drift 8s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Hero scroll cue — vertical line grows from top, retracts from bottom */
+@keyframes scroll-cue {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  40% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.scroll-cue-line {
+  animation: scroll-cue 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+  will-change: transform;
+}
