@@ -55,7 +55,7 @@ function Hero() {
       data-hero
       className="relative isolate w-full h-[100svh] overflow-hidden"
     >
-      <VideoBackground src="/Landing%20Page.mp4" />
+      <VideoBackground src="https://pub-a6d5b4a188db43c096d9036708f80ef2.r2.dev/Landing%20Page_Precise_Starlight_2_5.mp4" />
 
       {/* Upper-right micro-copy — adds density without clutter */}
       <div className="absolute top-24 right-6 md:top-28 md:right-12 lg:right-16 z-10 text-right">
