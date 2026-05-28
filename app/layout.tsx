@@ -3,6 +3,7 @@ import { DM_Serif_Display, Lora } from "next/font/google";
 import "./globals.css";
 import MotionProvider from "./components/MotionProvider";
 import Grain from "./components/Grain";
+import { Analytics } from "@vercel/analytics/next";
 
 const dmSerif = DM_Serif_Display({
   variable: "--font-dm-serif",
@@ -49,6 +50,7 @@ export default function RootLayout({
           {children}
           <Grain />
         </MotionProvider>
+        <Analytics />
       </body>
     </html>
   );
