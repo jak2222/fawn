@@ -39,8 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-# large media — served from external storage (R2), never commit to the repo
-*.mp4
-*.mov
-*.webm
