@@ -55,7 +55,10 @@ function Hero() {
       data-hero
       className="relative isolate w-full h-[100svh] overflow-hidden"
     >
-      <VideoBackground src="/Landing%20Page.mp4" />
+      <VideoBackground
+        src="https://pub-a6d5b4a188db43c096d9036708f80ef2.r2.dev/Landing%20Page%20v2.mp4"
+        poster="/hero-poster.jpg"
+      />
 
       {/* Upper-right micro-copy — adds density without clutter */}
       <div className="absolute top-24 right-6 md:top-28 md:right-12 lg:right-16 z-10 text-right">
@@ -115,7 +118,7 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="services" className="relative">
+    <section id="services" className="relative scroll-mt-20 md:scroll-mt-24">
       <div className="px-6 md:px-10 pt-20 md:pt-28 pb-6 md:pb-10">
         <ChapterMarker>services — 01</ChapterMarker>
         <Reveal delay={0.08}>
@@ -282,7 +285,7 @@ function ServiceText({
 
 function Approach() {
   return (
-    <section id="approach" className="relative">
+    <section id="approach" className="relative scroll-mt-20 md:scroll-mt-24">
       <div className="px-6 md:px-10 py-20 md:py-28">
         <ChapterMarker>approach — 02</ChapterMarker>
         <Reveal delay={0.08}>
@@ -326,10 +329,13 @@ function Approach() {
 
 function Contact() {
   return (
-    <section id="contact" className="relative px-6 md:px-10 py-20 md:py-28">
+    <section
+      id="contact"
+      className="relative scroll-mt-20 md:scroll-mt-24 px-6 md:px-10 py-20 md:py-28"
+    >
       <div className="md:grid md:grid-cols-12 md:gap-10">
         <div className="md:col-span-9 md:col-start-4">
-          <ChapterMarker>contact — 04</ChapterMarker>
+          <ChapterMarker>contact — 03</ChapterMarker>
           <Reveal delay={0.08}>
             <h2 className="mt-2 md:mt-3 font-display font-normal tracking-[-0.012em] leading-[1.02] text-[clamp(2.25rem,5vw,4.5rem)] max-w-[18ch]">
               Discover what&apos;s possible for you.

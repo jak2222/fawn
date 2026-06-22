@@ -2,25 +2,36 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#approach", label: "About Fawn" },
+  { href: "/#services", label: "Services" },
+  { href: "/#approach", label: "About Fawn" },
 ];
 
 const CAL_URL = "https://cal.com/jak-norwood-bdwdcp/30min";
 
-export default function Nav() {
-  const [overHero, setOverHero] = useState(true);
+type Props = {
+  // Pages without a full-bleed hero (e.g. the /work showcase pages) should
+  // always render the solid, post-hero nav style rather than the
+  // transparent-over-hero one.
+  solid?: boolean;
+};
+
+export default function Nav({ solid = false }: Props) {
+  const [scrolledPastHero, setScrolledPastHero] = useState(true);
 
   useEffect(() => {
+    if (solid) return;
     const onScroll = () => {
-      setOverHero(window.scrollY < window.innerHeight * 0.85);
+      setScrolledPastHero(window.scrollY < window.innerHeight * 0.85);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [solid]);
+
+  const overHero = !solid && scrolledPastHero;
 
   return (
     <header
@@ -41,8 +52,8 @@ export default function Nav() {
               1. Drop your file in /public, e.g. public/logo.svg
               2. Uncomment the <Image /> below and add `import Image from "next/image";` at the top.
             ───────────────────────────────────────────── */}
-        <a
-          href="#top"
+        <Link
+          href="/#top"
           className="flex items-center gap-2.5"
           aria-label="Fawn — back to top"
         >
@@ -65,13 +76,13 @@ export default function Nav() {
           >
             fawn
           </span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-5 md:gap-8">
           <ul className="hidden md:flex items-center gap-7 text-[14px]">
             {links.map((l) => (
               <li key={l.href}>
-                <a
+                <Link
                   href={l.href}
                   className={[
                     "transition-colors duration-500",
@@ -81,7 +92,7 @@ export default function Nav() {
                   ].join(" ")}
                 >
                   {l.label}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>

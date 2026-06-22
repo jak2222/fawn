@@ -19,6 +19,8 @@ export default function VideoBackground({ src, poster }: Props) {
           loop
           muted
           playsInline
+          disablePictureInPicture
+          disableRemotePlayback
           poster={poster}
           className="absolute inset-0 h-full w-full object-cover"
         >

@@ -24,14 +24,52 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "Fawn — AI content that does more for less.",
   description:
-    "Fawn is a creative studio. AI production, content at scale, content systems, and social.",
+    "Fawn is a London creative studio making AI content that does more for less: AI production, content at scale, bespoke content systems, and fully managed social.",
   metadataBase: new URL("https://byfawn.com"),
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Fawn",
-    description: "AI content that does more for less.",
+    title: "Fawn — AI content that does more for less.",
+    description:
+      "A London creative studio. AI production, content at scale, content systems, and social.",
     url: "https://byfawn.com",
     siteName: "Fawn",
+    locale: "en_GB",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fawn — AI content that does more for less.",
+    description:
+      "A London creative studio. AI production, content at scale, content systems, and social.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Fawn",
+  url: "https://byfawn.com",
+  logo: "https://byfawn.com/Logo.png",
+  email: "hello@byfawn.com",
+  description:
+    "Fawn is a London creative studio making AI content that does more for less: AI production, content at scale, bespoke content systems, and fully managed social.",
+  foundingDate: "2026",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "London",
+    addressCountry: "GB",
   },
 };
 
@@ -46,6 +84,12 @@ export default function RootLayout({
       className={`${dmSerif.variable} ${lora.variable} antialiased`}
     >
       <body className="min-h-screen bg-bone text-ink">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema),
+          }}
+        />
         <MotionProvider>
           {children}
           <Grain />

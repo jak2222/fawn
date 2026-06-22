@@ -120,3 +120,20 @@ html {
   animation: scroll-cue 2.8s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   will-change: transform;
 }
+
+/* Respect OS-level reduced-motion preference for CSS animations
+   (Framer Motion animations are handled by MotionConfig reducedMotion="user") */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .grain-animated,
+  .scroll-cue-line {
+    animation: none;
+  }
+
+  .scroll-cue-line {
+    transform: scaleY(1);
+  }
+}
