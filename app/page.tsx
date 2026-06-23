@@ -56,7 +56,7 @@ function Hero() {
       className="relative isolate w-full h-[100svh] overflow-hidden"
     >
       <VideoBackground
-        src="https://pub-a6d5b4a188db43c096d9036708f80ef2.r2.dev/Landing%20Page%20v2.mp4"
+        src="https://pub-a6d5b4a188db43c096d9036708f80ef2.r2.dev/landingpagev3.mp4"
         poster="/hero-poster.jpg"
       />
 
