@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 // Swap in the Cloudflare R2 poster URL once uploaded.
 const VIDEO_URL =
-  "https://pub-a6d5b4a188db43c096d9036708f80ef2.r2.dev/salmon.mov";
+  "https://pub-a6d5b4a188db43c096d9036708f80ef2.r2.dev/salmon-fixed.mp4";
 const POSTER_URL = "POSTER_URL_PLACEHOLDER";
 
 export default function FoodWorkPage() {
